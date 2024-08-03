@@ -33,7 +33,7 @@ export const getPost = async (req, res) => {
         const post = await prisma.post.findUnique({
             where: { id },
             include: {
-                postDetail: true,
+                PostDetail: true,
                 user: {
                     select: {
                         username: true,
@@ -42,6 +42,7 @@ export const getPost = async (req, res) => {
                 },
             },
         });
+
 
         const token = req.cookies?.token;
 
@@ -60,7 +61,7 @@ export const getPost = async (req, res) => {
                 }
             });
         }
-        res.status(200).json({ ...post, isSaved: false });
+
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: "Failed to get post" });
@@ -76,7 +77,7 @@ export const addPost = async (req, res) => {
             data: {
                 ...body.postData,
                 userId: tokenUserId,
-                postDetail: {
+                PostDetail: {
                     create: body.postDetail,
                 },
             },
