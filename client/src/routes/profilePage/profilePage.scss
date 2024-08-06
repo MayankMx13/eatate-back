@@ -71,9 +71,11 @@
         }
     }
     .chatContainer{
+
         flex:2;
         background-color: #fcf5f3;
         height: 100%;
+        margin-bottom:50px;
         @include md{
             flex:none;
             height: max-content;
@@ -82,9 +84,12 @@
         .wrapper{
             height: 100%;
             padding: 0px 20px;
+            
             h1{
                 font-weight: 300;
             }
+
+           
         }
     }
 }
