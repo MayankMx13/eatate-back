@@ -25,6 +25,6 @@ app.use("/api/messages", messageRoute);
 
 
 
-app.listen(8800, () => {
+app.listen(process.env.PORT, () => {
     console.log("server is running..");
 })
